@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework_3</title>
+</head>
+<body>
+<p class="super_element">Привет</p>
+<img src="https://placeimg.com/50/50/animals" alt="">
+<img src="https://placeimg.com/50/50/arch" alt="">
+<img src="https://placeimg.com/50/50/nature" alt="">
+<img src="https://placeimg.com/50/50/people" alt="">
+<img src="https://placeimg.com/50/50/tech" alt="">
+<img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+<img src="https://placeimg.com/50/50/tech/sepia" alt="">
+<br>
+<button>Кнопка</button>
+<button class="super_element">Кнопка с классом btn</button>
+<button>Кнопка</button>
+<br>
+<textarea></textarea>
+<br>
+<ul>
+  <li>
+    <button>Кнопка 1</button>
+  </li>
+  <li>
+    <button>Кнопка 2</button>
+  </li>
+  <li>
+    <button>Кнопка 3</button>
+  </li>
+  <li>
+    <button>Кнопка 4</button>
+  </li>
+</ul>
+<script>
+  "use strict";
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => console.log("все теги прогрузились")
+  );
+  window.addEventListener('load', () => console.log("страница загрузилась"));
+  document.addEventListener('click', event => {
+    const containStr = event.target.classList.contains('super_element')
+      ? 'присутствует' : 'отсутствует';
+    console.log(`Класс "super_element" ${containStr} в элементе "${event.target.tagName.toLowerCase()}".`);
+  });
+  document
+    .querySelector('textarea')
+    .addEventListener('mouseover', () => console.log("Вы навели на textarea."));
+  document.querySelector('ul').addEventListener('click', event => {
+    if (event.target.tagName !== "BUTTON") {
+      return;
+    }
+    console.log(event.target.textContent);
+  });
+  document
+    .querySelectorAll('li:nth-child(2n)')
+    .forEach(el => el.style.backgroundColor = 'red');
+</script>
+</body>
+</html>
