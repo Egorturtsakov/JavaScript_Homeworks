@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework_1</title>
+  <style>
+    .product {
+      width: 200px;
+      padding: 10px;
+      float: left;
+      margin-right: 30px;
+      box-shadow: 0 0 4px black;
+    }
+  </style>
+</head>
+<body>
+<div class="product">
+  <div class="productName">Товар 1</div>
+  <img src="https://loremflickr.com/200/300/goods?lock=2" alt="">
+  <button>В корзину</button>
+</div>
+<div class="product">
+  <div class="productName">Товар 2</div>
+  <img src="https://loremflickr.com/200/300/goods?lock=12" alt="">
+  <button>В корзину</button>
+</div>
+<div class="product">
+  <div class="productName">Товар 3</div>
+  <img src="https://loremflickr.com/200/300/goods?lock=33" alt="">
+  <button>В корзину</button>
+</div>
+<script>
+  "use strict";
+
+  document
+    .querySelectorAll('.productName')
+    .forEach(el => el.style.fontSize = '24px');
+  document
+    .querySelectorAll('.product')
+    .forEach(el => el.style.marginRight = '50px');
+  document.body.addEventListener('click', e => {
+    const button = e.target;
+    if (button.tagName !== "BUTTON") {
+      return;
+    }
+    button.textContent = 'Добавлено';
+    button.disabled = true;
+  });
+  const productCopy = document.querySelector('.product').cloneNode(true);
+  productCopy
+    .querySelector('img')
+    .src = 'https://loremflickr.com/200/300/goods?lock=37';
+  productCopy.querySelector('.productName').textContent = 'Товар 4';
+  document.querySelector('.product:last-of-type').replaceWith(productCopy);
+  setTimeout(() => document.querySelector('.product').remove(), 2000);
+</script>
+</body>
+</html>
