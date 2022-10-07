@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework_3</title>
+</head>
+<body>
+<script>
+  "use strict";
+
+  function descendingOrder(n) {
+    return +n.toString().split('').sort((a, b) => b - a).join('');
+  }
+  console.log(descendingOrder(42145));
+  console.log(descendingOrder(145263));
+  console.log(descendingOrder(123456789));
+</script>
+</body>
+</html>
